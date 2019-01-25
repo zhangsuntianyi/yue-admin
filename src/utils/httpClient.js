@@ -3,6 +3,7 @@ import { LoadingBar, Message } from 'iview';
 
 import store from '../store';
 import router from '../router';
+import Constant from '../data/constant';
 
 export default {
   request(opts) {
@@ -45,7 +46,7 @@ export default {
     const url = opts.url || '';
     const config = {
       url,
-      baseURL: store.state.baseUrl,
+      baseURL: Constant.baseUrl,
       headers: opts.headers || {},
       method,
     };
