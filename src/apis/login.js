@@ -8,7 +8,7 @@ import MenuData from '../data/menus';
 export default {
   // 登录
   login(data, success, error) {
-    MockClient.get('/login', data, () => {
+    MockClient.post('/login', data, () => {
       const user = _.find(
         UserData.users,
         item => item.loginName === data.loginName && item.password === data.password
@@ -33,6 +33,7 @@ export default {
     });
 
     HttpClient.request({
+      method: 'post',
       url: '/login',
       data,
       success: (responseData) => {
