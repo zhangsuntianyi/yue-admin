@@ -1,0 +1,84 @@
+/* 全局样式表 */
+
+.container-fluid {
+  height: 100%;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.title-container {
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.title-container button {
+  margin-left: 20px;
+}
+
+.title-btn-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title-btn-container button {
+  margin-left: 10px;
+}
+
+.inner-btn-container {
+  float: right;
+}
+
+.page-container {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.split-left-container, .split-right-container {
+  padding: 20px;
+}
+
+.split-left-container {
+  background: #f5f7f9;
+  border-right: 1px solid #e8eaec;
+}
+
+.siderTree {
+  height: 600px;
+  overflow: auto;
+}
+
+.backBtn {
+  margin-left: 14px;
+}
+
+.multi-operation {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.multi-operation-button {
+  margin-left: 10px;
+}
+
+.ivu-btn-error {
+}
+
+.title-btn-container-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.title-btn-container-left button {
+  margin-right: 10px;
+}

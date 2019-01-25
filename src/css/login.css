@@ -1,0 +1,48 @@
+.login_main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../public/image/background.jpg') fixed center center;
+  position: absolute;
+}
+
+.logo_box {
+  width: 350px;
+  height: 370px;
+  padding: 35px;
+  color: #EEE;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -175px;
+  margin-top: -185px;
+}
+
+.logo_box h3 {
+  text-align: center;
+  height: 20px;
+  font: 20px 'microsoft yahei', Helvetica, Tahoma, Arial, 'Microsoft jhengHei', sans-serif;
+  color: #FFFFFF;
+  line-height: 20px;
+  padding: 0 0 35px 0;
+}
+
+.ivu-input {
+  width: 100%;
+  height: 46px;
+  border-radius: 50px;
+  border: rgba(255, 255, 255, 0.2) 2px solid;
+  background: none;
+  color: #FFFFFF;
+  font: 14px 'microsoft yahei', Helvetica, Tahoma, Arial, 'Microsoft jhengHei';
+}
+.ivu-input-prefix {
+  width: 46px;
+}
+.ivu-input-prefix i {
+  line-height: 46px;
+}
+.ivu-input-with-prefix {
+  padding-left: 46px;
+}
