@@ -10,3 +10,6 @@ npm run serve
 2、账户<br/>
 账号：admin<br/>
 密码：123456
+
+3、参考项目<br/>
+iview-admin
