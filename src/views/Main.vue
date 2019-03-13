@@ -68,9 +68,11 @@
 
           <!--用户信息-->
           <div class="header-user-container container-fluid">
+            <Icon @click.native="handleFullscreen" :type="isFullscreen ? 'md-contract' : 'md-expand'"
+                  size="24"/>
+
             <Dropdown class="action" placement="bottom-end">
               <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg"
-                      size="large"
                       style="margin-right: 10px"/>
               <span style="font-size: 14px;">{{ userName }}</span>
               <Icon type="md-arrow-dropdown" :size="24"/>
@@ -99,8 +101,13 @@
                    :label="item.title"
                    :name="item.fullPath">
           </TabPane>
-          <Icon type="md-close" size="24" slot="extra"
-                @click="closeAllTab" class="cursor-pointer"></Icon>
+          <Dropdown slot="extra" transfer @on-click="clickCloseMenu">
+            <Icon type="md-close" size="24" class="cursor-pointer"></Icon>
+            <DropdownMenu slot="list">
+              <DropdownItem name="close-all">关闭所有</DropdownItem>
+              <DropdownItem name="close-others">关闭其他</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </Tabs>
 
         <!-- content -->
@@ -124,6 +131,8 @@ import CollapsedMenu from '../components/collapsedMenu.vue';
 import SiderTrigger from '../components/siderTrigger.vue';
 import Message from './message/components/message.vue';
 
+import { onOffFullscreen } from '../utils/utils';
+
 import '../css/main.less';
 
 export default {
@@ -140,11 +149,12 @@ export default {
       userName: state => state.user.userName,
       menus: state => state.user.menus,
       tabs: state => state.tabs,
+      collapsed: state => state.collapsed
     }),
   },
   data() {
     return {
-      collapsed: false
+      isFullscreen: false
     };
   },
   methods: {
@@ -152,41 +162,84 @@ export default {
       'setToken',
       'setTabs',
       'addTab',
+      'setCollapsed',
     ]),
     openMessageDrawer() {
       this.$refs.messageDrawer.openDrawer();
     },
     resetPwd() {
+      this.$Message.info('这是修改密码');
     },
     logout() {
       this.setToken('');
       this.$router.replace('/login');
     },
     closeTab(tabKey) {
-      const tabs = this.tabs.filter(item => item.fullPath !== tabKey);
-      this.setTabs(tabs);
+      const newTabs = this.$lodash.filter(
+        this.tabs,
+        item => item.fullPath !== tabKey
+      );
+      this.setTabs(newTabs);
 
       // 如果删除本身则跳转到最后一个tab页
       if (this.$route.fullPath === tabKey) {
-        this.$router.push(tabs[tabs.length - 1].fullPath);
+        this.$router.push(newTabs[newTabs.length - 1].fullPath);
       }
     },
     clickTab(tabKey) {
-      const tabs = this.tabs.filter(item => item.fullPath === tabKey);
-      this.$router.push(tabs[0].fullPath);
+      const clickTab = this.$lodash.find(
+        this.tabs,
+        item => item.fullPath === tabKey
+      );
+      if (clickTab) {
+        this.$router.push(clickTab.fullPath);
+      }
+    },
+    clickCloseMenu(name) {
+      if (name === 'close-all') {
+        this.closeAllTab();
+      } else {
+        this.closeOtherTab();
+      }
     },
     closeAllTab() {
-      this.setTabs([
-        { title: '主页', fullPath: '/index' },
-      ]);
+      const newTabs = this.$lodash.filter(
+        this.tabs,
+        item => item.fullPath === '/index'
+      );
+      this.setTabs(newTabs);
       this.$router.push('/index');
     },
+    closeOtherTab() {
+      const newTabs = this.$lodash.filter(
+        this.tabs,
+        item => item.fullPath === this.$route.fullPath || item.fullPath === '/index'
+      );
+      this.setTabs(newTabs);
+    },
     handleCollpasedChange(state) {
-      this.collapsed = state;
+      this.setCollapsed(state);
     },
     toUrl(url) {
       this.$router.push(url);
     },
+    handleFullscreen() {
+      onOffFullscreen(this.isFullscreen);
+    }
+  },
+  mounted() {
+    document.addEventListener('fullscreenchange', () => {
+      this.isFullscreen = !this.isFullscreen;
+    });
+    document.addEventListener('mozfullscreenchange', () => {
+      this.isFullscreen = !this.isFullscreen;
+    });
+    document.addEventListener('webkitfullscreenchange', () => {
+      this.isFullscreen = !this.isFullscreen;
+    });
+    document.addEventListener('msfullscreenchange', () => {
+      this.isFullscreen = !this.isFullscreen;
+    });
   },
   watch: {
     $route(to) {

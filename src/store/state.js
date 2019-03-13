@@ -15,4 +15,7 @@ export default {
     '/500',
     '/*',
   ],
+
+  // 菜单是否收起
+  collapsed: false
 };

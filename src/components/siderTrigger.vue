@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'siderTrigger',
+  name: 'SiderTrigger',
   props: {
     collapsed: Boolean,
     icon: {

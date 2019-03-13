@@ -1,0 +1,84 @@
+@wrapper: ~'department';
+.percent-100 {
+  width: 100%;
+  height: 100%;
+}
+
+.@{wrapper}-outer {
+  .percent-100;
+  overflow: hidden;
+
+  .api-box {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+  }
+
+  .zoom-box {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+  }
+
+  .revolve-box {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+  }
+
+  .view-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    cursor: move;
+
+    .org-tree-drag-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .org-tree-wrapper {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transition: transform 0.2s ease-out;
+
+      .org-tree-node-label {
+        .org-tree-node-label-inner {
+          padding: 0;
+
+          .custom-org-node {
+            padding: 14px 41px;
+            background: #738699;
+            user-select: none;
+            word-wrap: none;
+            white-space: nowrap;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            transition: background 0.1s ease-in;
+            cursor: pointer;
+
+            &:hover {
+              background: #5d6c7b;
+              transition: background 0.1s ease-in;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.horizontal.collapsable .org-tree-node.collapsed .org-tree-node-label:after {
+  border-bottom: 1px solid #ddd;
+}

@@ -18,8 +18,8 @@ export default {
           id: '02',
           name: '部门管理',
           icon: 'md-contacts',
-          url: '/system/dept',
-          permission: 'system.dept.menu'
+          url: '/system/department',
+          permission: 'system.department.menu'
         },
         {
           id: '03',
@@ -147,13 +147,43 @@ export default {
           permission: 'multiLevel.eight.menu'
         },
       ]
-    }
+    },
+    {
+      id: '3',
+      name: '组件',
+      icon: 'ios-calendar',
+      url: '/component',
+      permission: 'component.menu',
+      children: [
+        {
+          id: '31',
+          name: '富文本',
+          icon: 'md-bookmarks',
+          url: '/component/editor',
+          permission: 'component.editor.menu'
+        },
+        {
+          id: '32',
+          name: '拖拽',
+          icon: 'md-bookmarks',
+          url: '/component/dragDrop',
+          permission: 'component.dragDrop.menu'
+        },
+        {
+          id: '33',
+          name: '导入导出',
+          icon: 'md-bookmarks',
+          url: '/component/excel',
+          permission: 'component.excel.menu'
+        }
+      ]
+    },
   ],
 
   permissions: [
     'system.menu',
     'system.user.menu',
-    'system.dept.menu',
+    'system.department.menu',
     'system.menu.menu',
     'system.permission.menu',
     'one.menu',
@@ -165,6 +195,10 @@ export default {
     'multiLevel.five.menu',
     'multiLevel.six.menu',
     'multiLevel.seven.menu',
-    'multiLevel.eight.menu'
+    'multiLevel.eight.menu',
+    'component.menu',
+    'component.editor.menu',
+    'component.dragDrop.menu',
+    'component.excel.menu'
   ]
 }

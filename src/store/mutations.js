@@ -9,3 +9,7 @@ export const setTabs = (state, tabs) => {
 export const addTab = (state, tab) => {
   state.tabs.push(tab);
 };
+
+export const setCollapsed = (state, collapsed) => {
+  state.collapsed = collapsed;
+};

@@ -37,13 +37,78 @@ export default [
 
       {
         path: 'system/user',
-        component: loadView('system/user/list'),
+        component: loadView('system/user/index'),
         meta: {
           title: '用户管理',
           permissions: ['system.user.menu'],
           breadCrumbList: [
             { name: '首页', to: '/index' },
             { name: '用户管理' }
+          ],
+        },
+      },
+
+      {
+        path: 'system/department',
+        component: loadView('system/department/index'),
+        meta: {
+          title: '部门管理',
+          permissions: ['system.department.menu'],
+          breadCrumbList: [
+            { name: '首页', to: '/index' },
+            { name: '部门管理' }
+          ],
+        },
+      },
+
+      {
+        path: 'system/menu',
+        component: loadView('system/menu/index'),
+        meta: {
+          title: '菜单管理',
+          permissions: ['system.menu.menu'],
+          breadCrumbList: [
+            { name: '首页', to: '/index' },
+            { name: '菜单管理' }
+          ],
+        },
+      },
+
+      {
+        path: 'component/editor',
+        component: loadView('component/editor/index'),
+        meta: {
+          title: '富文本',
+          permissions: ['component.editor.menu'],
+          breadCrumbList: [
+            { name: '首页', to: '/index' },
+            { name: '富文本' }
+          ],
+        },
+      },
+
+      {
+        path: 'component/dragDrop',
+        component: loadView('component/dragDrop/index'),
+        meta: {
+          title: '拖拽',
+          permissions: ['component.dragDrop.menu'],
+          breadCrumbList: [
+            { name: '首页', to: '/index' },
+            { name: '拖拽' }
+          ],
+        },
+      },
+
+      {
+        path: 'component/excel',
+        component: loadView('component/excel/index'),
+        meta: {
+          title: '导入导出',
+          permissions: ['component.excel.menu'],
+          breadCrumbList: [
+            { name: '首页', to: '/index' },
+            { name: '导入导出' }
           ],
         },
       }

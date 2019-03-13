@@ -9,13 +9,20 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "countup": "^1.8.2",
+    "echarts": "^4.2.0-rc.2",
     "iview": "^3.2.1",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
+    "tree-table-vue": "^1.1.0",
+    "v-org-tree": "^1.0.6",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",
+    "vuedraggable": "^2.17.0",
     "vuex": "^3.0.1",
-    "vuex-persistedstate": "^2.5.4"
+    "vuex-persistedstate": "^2.5.4",
+    "wangeditor": "^3.1.1",
+    "xlsx": "^0.14.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
